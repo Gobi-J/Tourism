@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+* {
+  margin: 0;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  scroll-behavior: smooth;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(248, 250, 229, 0.8), rgba(177, 148, 112, 0.8));
+  padding: 10px 30px;
+  box-shadow: 0 2px 5px #b19470;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 999;
+  color: #76453b;
+}
+nav .logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .logo h1 {
+  font-family: "Sacramento", cursive;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+nav img {
+  width: 70px;
+  aspect-ratio: 1;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+nav ul li {
+  list-style: none;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #76453b;
+  font-size: 1.2rem;
+  position: relative;
+  font-weight: 600;
+}
+nav ul li a::after {
+  content: "";
+  background: #76453b;
+  height: 3px;
+  width: 0;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s;
+}
+nav ul li a:hover::after {
+  width: 70%;
+}
+
+main, section {
+  scroll-margin-top: 80px;
+}
+
+main {
+  background-color: #43766c;
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+main video {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(80%);
+}
+
+.main-container {
+  z-index: 10;
+  background: #b19470;
+  color: #e1e1e1;
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+.main-container h1 {
+  font-size: 5em;
+  font-family: "Sacramento", cursive;
+}
+.main-container h3 {
+  font-size: 2em;
+  margin: 10px 0 20px;
+  color: #76453b;
+}
+.main-container h4 {
+  font-size: 1.2em;
+  margin: 10px 0 20px;
+  color: #76453b;
+}
+
+#packages {
+  padding: 20px;
+  background: #b19470;
+}
+
+.type {
+  background: #f8fae5;
+  height: 300px;
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.type .inner-type {
+  margin: 0 30px;
+  flex-basis: 20%;
+  text-align: center;
+}
+.type .inner-type h2 {
+  font-family: "Sacramento", cursive;
+  font-size: 2rem;
+}
+.type .cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  flex-basis: 70%;
+  overflow-x: scroll;
+}
+.type .cards .card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 300px;
+  height: 250px;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+.type .cards .card img {
+  height: 100%;
+  width: 400px;
+  object-fit: cover;
+  transition: all 0.5s;
+}
+.type .cards .card .card-content {
+  position: absolute;
+  background-color: rgba(220, 242, 241, 0.6666666667);
+  height: 100%;
+  bottom: -100%;
+  transition: all 0.2s;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.type .cards .card .card-content h3 {
+  font-family: "Sacramento", cursive;
+  font-size: 2rem;
+}
+.type .cards .card .card-content a {
+  text-decoration: none;
+  color: #76453b;
+  font-weight: 600;
+  background: #b19470;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+.type .cards .card .card-content a:hover {
+  padding: 7px 16px 9px;
+}
+.type .cards .card:hover img {
+  scale: 1.2;
+}
+.type .cards .card:hover .card-content {
+  bottom: 0;
+}
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: #76453b;
+}
+
+.cards::-webkit-scrollbar-track {
+  background: #b19470;
+}
+
+#categories {
+  background: #f8fae5;
+}
+#categories .category-cards {
+  width: 90%;
+  margin: auto;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+#categories .category-cards .category-card {
+  width: max(45%, 350px);
+  height: 350px;
+  position: relative;
+}
+#categories .category-cards .category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#categories .category-cards .category-card .category-card-details {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  text-align: justify;
+  right: 0;
+  height: 100%;
+  top: 0;
+  background: #e1e1e1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 30% 50%);
+  opacity: 0.9;
+  transition: all 0.5s;
+}
+#categories .category-cards .category-card .category-card-details img {
+  width: 30%;
+}
+#categories .category-cards .category-card .category-card-details .inner-category-details {
+  width: 60%;
+}
+#categories .category-cards .category-card .category-card-details h3 {
+  font-family: "Sacramento", cursive;
+  font-size: 1.8rem;
+}
+#categories .category-cards .category-card .category-card-details h3, #categories .category-cards .category-card .category-card-details p {
+  width: 70%;
+  margin-left: auto;
+  margin-top: 10px;
+}
+#categories .category-cards .category-card:hover .category-card-details {
+  clip-path: none;
+  opacity: 0.8;
+}
+
+.head {
+  text-align: center;
+  padding: 20px;
+  font-size: 3rem;
+  color: #76453b;
+}
+
+#banner {
+  min-height: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url("/assets/images/wonders.jpg") center;
+}
+#banner .banner-container {
+  border-radius: 20px;
+  overflow: hidden;
+}
+#banner h3 {
+  padding: 10px;
+  color: #b19470;
+  backdrop-filter: brightness(95%);
+  font-size: clamp(4rem, 10vw, 6rem);
+}
+#banner p {
+  padding: 10px;
+  color: #f8fae5;
+  backdrop-filter: brightness(55%);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#contact {
+  background: #43766c;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#contact .contact-container {
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+#contact .contact-container .left-contact {
+  background: #b19470;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: -2px 2px 2px 2px;
+}
+#contact .contact-container .left-contact .contact-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border-top: 1px solid;
+}
+#contact .contact-container .left-contact .contact-form input, #contact .contact-container .left-contact .contact-form textarea {
+  background: none;
+  border: 2px solid;
+  padding: 5px;
+  width: 80%;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+#contact .contact-container .left-contact .contact-form input::placeholder, #contact .contact-container .left-contact .contact-form textarea::placeholder {
+  color: #f8fae5;
+}
+#contact .contact-container .left-contact .contact-form button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 5px;
+  font-weight: 700;
+  box-shadow: 2px 2px 2px 2px;
+}
+#contact .contact-container .left-contact .contact-form button:hover {
+  box-shadow: 1px 1px 2px 2px;
+}
+
+/*# sourceMappingURL=style.css.map */

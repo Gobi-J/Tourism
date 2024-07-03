@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+
+* {
+  margin: 0;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+scroll-behavior: smooth;
+}
+$black: #1e1e1e;
+$white: #e1e1e1;
+$c1: #43766c;
+$c2: #f8fae5;
+$c3: #b19470;
+$c4: #76453b;
+$c5: #ffffec;
+$font1: "Sacramento", cursive;
+
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin color($bg, $fg) {
+  background-color: $bg;
+  color: $fg;
+}
+nav {
+  @include flex;
+  background: linear-gradient(90deg, rgba($c2, 0.8), rgba($c3, 0.8));
+  padding: 10px 30px;
+  box-shadow: 0 2px 5px $c3;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 999;
+  color: $c4;
+  .logo {
+    @include flex;
+    h1 {
+      font-family: $font1;
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+  }
+  img {
+    width: 70px;
+    aspect-ratio: 1;
+  }
+  ul {
+    @include flex;
+    gap: 15px;
+
+    li {
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        color: $c4;
+        font-size: 1.2rem;
+        position: relative;
+        font-weight: 600;
+
+        &::after {
+          content: "";
+          background: $c4;
+          height: 3px;
+          width: 0;
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          transition: width 0.3s;
+        }
+        &:hover::after {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+main,section{
+    scroll-margin-top: 80px;
+}
+
+main {
+  background-color: $c1;
+  height: calc(100vh - 80px);
+  @include flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+
+  video {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter:brightness(80%);
+  }
+}
+.main-container {
+  z-index: 10;
+  background: $c3;
+  color: $white;
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+  h1 {
+    font-size: 5em;
+    font-family: $font1;
+  }
+  h3 {
+    font-size: 2em;
+    margin: 10px 0 20px;
+    color: $c4;
+  }
+  h4 {
+    font-size: 1.2em;
+    margin: 10px 0 20px;
+    color: $c4;
+  }
+}
+
+// ------------ Package Section ------------
+
+#packages {
+  padding: 20px;
+  background: $c3;
+}
+.type {
+  background: $c2;
+  height: 300px;
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px auto;
+  @include flex;
+  .inner-type {
+    margin: 0 30px;
+    flex-basis: 20%;
+    text-align: center;
+
+    h2 {
+      font-family: $font1;
+      font-size: 2rem;
+    }
+  }
+  .cards {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    flex-basis: 70%;
+    overflow-x: scroll;
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      width: 300px;
+      height: 250px;
+      flex-shrink: 0;
+      margin-bottom: 10px;
+      img {
+        height: 100%;
+        width: 400px;
+        object-fit: cover;
+        transition: all 0.5s;
+      }
+      .card-content {
+        position: absolute;
+        background-color: #dcf2f1aa;
+        height: 100%;
+        bottom: -100%;
+        transition: all 0.2s;
+        text-align: center;
+
+        @include flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        h3 {
+          font-family: $font1;
+          font-size: 2rem;
+        }
+
+        a {
+          text-decoration: none;
+          color: $c4;
+          font-weight: 600;
+          background: $c3;
+          padding: 8px 16px;
+          border-radius: 5px;
+
+          &:hover {
+            padding: 7px 16px 9px;
+          }
+        }
+      }
+      &:hover {
+        img {
+          scale: 1.2;
+        }
+        .card-content {
+          bottom: 0;
+        }
+      }
+    }
+  }
+}
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: $c4;
+}
+.cards::-webkit-scrollbar-track {
+  background: $c3;
+}
+
+// ----------- Category Section -----------
+
+#categories{
+    background: $c2;
+
+    .category-cards{
+        width: 90%;
+        margin: auto;
+        padding: 12px 0;
+        @include flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .category-card{
+            width: max(45%,350px);
+            height: 350px;
+            position: relative;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .category-card-details{
+                position: absolute;
+                width: 100%;
+                padding: 10px;
+                text-align: justify;
+                right: 0;
+                height: 100%;
+                top: 0;
+                background: $white;
+                @include flex;
+                clip-path: polygon(50%0%,100%0%,100%100%,50%100%,30%50%);
+                opacity: .9;
+                transition: all .5s;
+
+                img{
+                    width: 30%;
+                }
+                .inner-category-details{
+                    width: 60%;
+                }
+                
+                h3{
+                    font-family: $font1;
+                    font-size: 1.8rem;
+                }
+                h3, p{
+                    width: 70%;
+                    margin-left: auto;
+                    margin-top: 10px;
+                }
+            }
+            &:hover .category-card-details{
+                clip-path: none;
+                opacity: .8;
+            }
+        }
+    }
+}
+
+.head{
+    text-align: center;
+    padding: 20px;
+    font-size: 3rem;
+    color: $c4;
+}
+
+#banner{
+    min-height: 30vh;
+    width: 100%;
+    @include flex;
+    justify-content: center;
+    text-align: center;
+    background: url('/assets/images/wonders.jpg') center;
+    .banner-container{
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    h3{
+        padding: 10px;
+        color: $c3;
+        backdrop-filter: brightness(95%);   
+        font-size: clamp(4rem, 10vw, 6rem);
+    }
+    p{
+        padding: 10px;
+        color: $c2;
+        backdrop-filter: brightness(55%);        
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+#contact{
+    background: $c1;
+    height: 100vh;
+    @include flex;
+
+    .contact-container{
+        width: 60%;
+        height: 60%;
+        margin: auto;
+        @include flex;
+        justify-content: center;
+
+        .left-contact{
+            background: $c3;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: -2px 2px 2px 2px;
+
+            .contact-form{
+                @include flex;
+                flex-direction: column;
+                border-top: 1px solid;
+
+                input,textarea{
+                    background: none;
+                    border: 2px solid;
+                    padding: 5px;
+                    width: 80%;
+                    margin-top: 10px;
+                    font-size: 1rem;
+
+                    &::placeholder{
+                        color: $c2;
+                    }
+                }
+
+                button{
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    margin-top: 20px;
+                    padding: 5px;
+                    font-weight: 700;
+                    box-shadow: 2px 2px 2px 2px;
+
+                    &:hover{
+                        box-shadow: 1px 1px 2px 2px;
+                    }
+                }
+            }
+        }
+    }
+}
